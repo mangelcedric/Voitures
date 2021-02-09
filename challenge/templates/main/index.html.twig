@@ -1,0 +1,17 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Page d'accueil{% endblock %}
+
+{% block body %}
+<div class="container">
+<div class="card bg-light mb-6" style="max-width: 70rem;">
+  <div class="card-body">
+    <h4 class="card-title">Que voulez-vous faire?</h4>
+    <button type="button" class="btn btn-secondary btn-lg"><a href="{{path('car_browse')}}">Voir la liste des voitures</button>
+    <button type="button" class="btn btn-secondary btn-lg"><a href="{{path('brand_browse')}}">Voir la listes des marques</button>
+    <button type="button" class="btn btn-secondary btn-lg"><a href="{{path('car_add')}}">Ajouter une voiture</button>
+    <button type="button" class="btn btn-secondary btn-lg"><a href="{{path('brand_add')}}">Ajouter une marque</button>
+  </div>
+</div>
+</div>
+{% endblock %}

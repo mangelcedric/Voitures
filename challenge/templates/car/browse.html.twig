@@ -1,0 +1,47 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voitures{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row my-4">
+    <a href="{{ path('car_add') }}" class="btn btn-success">Ajouter une voiture</a>
+  </div>
+  <div class="row my-2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Modèle</th>
+        <th scope="col">Marque</th>
+        <th scope="col">Année</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in cars %}
+        <tr>
+          <th scope="row">{{ car.id }}</th>
+          <td>{{ car.model }}</td>
+          <td><a href="{{ path('brand_cars_for_brand', {id: car.brand.id}) }}">{{ car.brand }}</a></td>
+          <td>{{ car.year }}</td>
+          <td>
+            <a class="btn btn-primary" href="{{ path('car_edit', {id: car.id}) }}"><i class="fa fa-pencil-square-o"></i></a>
+            <form action="{{ path('car_delete', {id: car.id}) }}" method="post" class="d-inline">
+              <button class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </button>
+              <input type="hidden" name="_method" value="DELETE">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+   </tbody>
+   </table>
+  </div>
+  <div class="row my-4">
+    <a href="{{ path('main') }}" class="btn btn-success">Retour à la page d'acceuil</a>
+  </div>
+</div>
+{% endblock %}
+  

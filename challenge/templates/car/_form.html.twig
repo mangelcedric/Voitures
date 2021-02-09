@@ -1,0 +1,13 @@
+<div class="row my-2">
+    <h2> {{ action }} une voiture</h2>
+</div>
+
+<div class="container">
+{{ form_start(form) }}
+    {{ form_row(form.model) }}
+    {{ form_row(form.brand) }}
+    {{ form_row(form.year) }}
+    <button type="submit" class="btn btn-success">{{ action }}</button>
+        <a href="{{ path('car_browse') }}" class="btn btn-success">Annuler</a>
+{{ form_end(form) }}
+</div>

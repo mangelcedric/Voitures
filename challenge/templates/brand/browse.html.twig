@@ -1,0 +1,43 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Marques{% endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row my-4">
+    <a href="{{ path('brand_add') }}" class="btn btn-success">Ajouter une marque</a>
+  </div>
+  <div class="row my-2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">ID</th>
+        <th scope="col">Nom de la marque</th>
+        <th scope="col">Actions</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for brand in brands %}
+        <tr>
+          <th scope="row">{{ brand.id }}</th>
+          <td><a href="{{ path('brand_cars_for_brand', {id: brand.id}) }}">{{ brand.name }}</a></td>
+          <td>
+            <a class="btn btn-primary" href="{{ path('brand_edit', {id: brand.id}) }}"><i class="fa fa-edit"></i></a>
+            <form action="{{ path('brand_delete', {id: brand.id}) }}" method="post" class="d-inline">
+              <button class="btn btn-danger">
+                <i class="fa fa-trash"></i>
+              </button>
+              <input type="hidden" name="_method" value="DELETE">
+            </form>
+          </td>
+        </tr>
+      {% endfor %}
+   </tbody>
+   </table>
+  </div>
+  <div class="row my-4">
+    <a href="{{ path('main') }}" class="btn btn-success">Retour à la page d'acceuil</a>
+  </div>
+</div>
+{% endblock %}
+  

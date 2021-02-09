@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}Voitures par marque{% endblock %}
+
+{% block body %}
+<div class="container">
+
+  <div class="row my-2">
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th scope="col">Modèle</th>
+      </tr>
+    </thead>
+    <tbody>
+      {% for car in brands.cars %}
+        <tr>
+          <td>{{ car.model }}</td>
+        </tr>
+      {% endfor %}
+   </tbody>
+   </table>
+  </div>
+  <div class="row my-4">
+    <a href="{{ path('main') }}" class="btn btn-success">Retour à la page d'acceuil</a>
+  </div>
+</div>
+{% endblock %}
+  
