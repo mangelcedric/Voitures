@@ -1,0 +1,13 @@
+
+<div class="row my-2">
+    <h2> {{ action }} une marque</h2>
+</div>
+
+{{ form_start(form) }}
+    {{ form_row(form.name) }}
+        <button type="submit" class="btn btn-success">{{ action }}</button>
+        <a href="{{ path('brand_browse') }}" class="btn btn-success">Annuler</a>
+{{ form_end(form) }}
+
+
+  
